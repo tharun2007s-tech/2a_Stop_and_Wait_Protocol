@@ -13,13 +13,11 @@ To write a python program to perform stop and wait protocol
 ```
 import socket 
 s=socket.socket() 
-host='127.0.0.1'
-port=8080
-s.bind((host,port)) 
+s.bind(('localhost',8000)) 
 s.listen(5) 
 c,addr=s.accept()
 while True:
-    i=input("Enter Ram's script: ")
+    i=input("Enter a data: ")
     c.send(i.encode())
     ack=c.recv(1024).decode()
     if ack: 
@@ -33,15 +31,14 @@ while True:
 ```
 import socket 
 s=socket.socket() 
-host='127.0.0.1'
-port=8080
-s.connect((host,port)) 
+s.connect(('localhost',8000)) 
 while True:
     print(s.recv(1024).decode())
-    s.send("Dialogue Completed.".encode())
+    s.send("Acknowledgement Recived".encode())
 ```
 ## OUTPUT
-<img width="1920" height="1080" alt="2 A" src="https://github.com/user-attachments/assets/fe3fa1a6-1b9a-4ed3-a7bf-eb28481828ec" />
+<img width="1920" height="1080" alt="2 A" src="https://github.com/user-attachments/assets/320b374b-31fb-4cc0-a19b-e8be35f53140" />
+
 
 ## RESULT
 Thus, python program to perform stop and wait protocol was successfully executed.
